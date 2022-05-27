@@ -1,20 +1,22 @@
 # ColdEND32-Modbus Fork
 
 # Modbus support
-Modbus RTU server support added, for better user experience rotary encoder instead of potentiometer
+In this fork Modbus RTU server support was added. For concurrent manual and Modbus control, rotary encoders instead of potis could be sed.
 
-**The Software is Beta stage and not fully tested yet**
-**Usage of this software is on your own risk, even damage of the ColdEND32 hardware**
+**The Software is Beta stage and not fully tested yet. Usage of this software is your own risk including damage of the ColdEND32 hardware**
 
 **Modbus Server ID**
+
 10
 
 **holding registers**
+
 HOLDING_SPIT  1       // UINT16  MIN_SPIT_TIME .. MAX_SPIT_TIME   RW
 HOLDING_MIST  2       // UINT16  MIN_RPM * 10 .. MAX_RPM * 10     RW
 
 
-**coils** 
+**coils**
+
 COIL_MIST_STAT     1   // RW
 COIL_AIR_STAT      2   // RW
 COIL_FAST_MODE     3   // RW
