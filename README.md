@@ -10,7 +10,7 @@ In this fork Modbus RTU server support was added. For concurrent manual and Modb
 **holding registers**
 
 Name           | Address  | Type     | Range                          | Access
----------------|----------|---------------------------------------------------
+---------------|----------|----------|--------------------------------|-------
 HOLDING_SPIT   |  1       | UINT16   | MIN_SPIT_TIME .. MAX_SPIT_TIME | RW
 HOLDING_MIST   |  2       | UINT16   | MIN_RPM * 10 .. MAX_RPM * 10   | RW
 
