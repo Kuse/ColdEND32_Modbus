@@ -7,13 +7,23 @@
 
   Written by Tilman, 2021-12-11
   Last edited by Tilman, 2021-12-29
+  Last edited by Kuse, 2022-05-27
 
 */
 
 
 void switchStat() {
   // Read fast mode momentary switch
-  fast_mode = digitalRead(IN_FAST);
+  
+  #ifdef MODBUS
+    if (mb_fast_mode || digitalRead(IN_FAST))
+      fast_mode = HIGH;
+    else  
+      fast_mode = LOW;
+  #else
+    fast_mode = digitalRead(IN_FAST);
+  #endif
+  
   
   // Either read momentary switches or solid state switches
   #ifdef MOMENTARY_SWITCH
@@ -70,7 +80,7 @@ void setValves() {
   }
 }
 
-
+ #ifndef ROTARY
 void potVals() {
   curr_pot_read = millis();
   if (curr_pot_read - prev_pot_read >= POT_LOOP) {
@@ -90,7 +100,7 @@ void potVals() {
     prev_pot_read = curr_pot_read;
   }
 }
-
+#endif
 
 void switchLEDs() {
   if (spit_pot_val >= MIN_SPIT_TIME) {
@@ -161,9 +171,3 @@ void IRAM_ATTR stepPulse() {
   digitalWrite(OUT_STEP, pulse);
   portEXIT_CRITICAL_ISR(&timerMux0);
 }
-
-
-
-
-
-//

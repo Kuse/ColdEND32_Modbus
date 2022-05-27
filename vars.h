@@ -7,6 +7,7 @@
 
   Written by Tilman, 2021-12-11
   Last edited by Tilman, 2021-12-29
+  Last edited by Kuse, 2022-05-27
 
 */
 
@@ -57,9 +58,7 @@ int             spit_old = 0;
 byte            coolant_old = LOW;
 byte            air_old = LOW;
 
-
-
-
-
-
-//
+// Modbus
+uint16_t mb_mist_stat = LOW;                            // Mist switch state
+uint16_t mb_air_stat  = LOW;                            // Air switch state
+uint16_t mb_fast_mode = LOW;                            // Fast mode state

@@ -7,6 +7,7 @@
 
   Written by Tilman, 2021-12-11
   Last edited by Tilman, 2021-12-29
+  Last edited by Kuse, 2022-05-27
 
 */
 
@@ -17,7 +18,7 @@
 
 // Display
 // #define SSD1306                                       // Uncomment for OLED with SSD1306 controller
-// #define SH1106                                        // Uncomment for OLED with SH1106 controller
+#define SH1106                                        // Uncomment for OLED with SH1106 controller
 // #define HT16K33                                       // Uncomment for 7-Segment LED Display with HT16K33 Controller
 // #define LCD16X2                                       // Uncomment for 16x2 LCD or VFD with I2C Controller
 // #define LCD16X4                                       // Uncomment for 16x4 LCD or VFD with I2C Controller
@@ -25,10 +26,12 @@
 
 
 // Features
-// #define DRAIN_SYSTEM                                  // Drain system with reversed fast mode when coolant is set to 0
-// #define MOMENTARY_SWITCH                              // Uncomment for momentary switches instead of solid state switches
-// #define REMOTE_CTRL                                   // Use input #4 for remote mist control from CNC. Momentary switches are required!
-// #define EXT_LED                                       // Uncomment for external LEDs indicating active mode (mist, air or spit)
+#define DRAIN_SYSTEM                                  // Drain system with reversed fast mode when coolant is set to 0
+#define MOMENTARY_SWITCH                              // Uncomment for momentary switches instead of solid state switches
+#define REMOTE_CTRL                                   // Use input #4 for remote mist control from CNC. Momentary switches are required!
+#define EXT_LED                                       // Uncomment for external LEDs indicating active mode (mist, air or spit)
+#define MODBUS                                        // Uncomment for Modbus interface on UART
+#define ROTARY                                        // Uncomment for rotary encoder 
 
 
 // Coolant pump
@@ -50,23 +53,33 @@
 
 // Pinout
 #ifdef COLDEND32
-  #define POT_MIST 33                                 // Mist potentiometer pin
-  #define POT_SPIT 32                                 // Spit potentiometer pin
-  #define IN_MIST 36                                  // Mist switch
-  #define IN_FAST 34                                  // Fast mode switch
-  #define IN_AIR 39                                   // Air only switch
-  #define IN_REM 35                                   // Remote control
-  #define OUT_DIR 14                                  // Direction pin
-  #define OUT_STEP 13                                 // Step pin
-  #define OUT_ENABLE 12                               // Enable pin
-  #define OUT_AIR 2                                   // Air valve pin
-  #define OUT_COOLANT 0                               // Coolant valve pin
-  #define OUT_LIFT 15                                 // Lift valve pin
-  #define OUT_SPIT_LED 25                             // Spit LED pin
-  #define OUT_5V_1 19                                 // 5V Output 1
-  #define OUT_5V_2 18                                 // 5V Output 2
-  #define OUT_5V_3 5                                  // 5V Output 3
-  #define OUT_5V_4 4                                  // 5V Output 4
+  #define POT_MIST            33                     // Mist potentiometer pin
+  #define POT_SPIT            32                     // Spit potentiometer pin
+  
+  #define IN_MIST             36                     // Mist switch
+  #define IN_FAST             34                     // Fast mode switch
+  #define IN_AIR              39                     // Air only switch
+  #define IN_REM              35                     // Remote control
+  #define IN_RXD              16                     // RxD pin
+  #define IN_ROT_ENC2_A       26                     //
+  #define IN_ROT_ENC2_B       27                     //
+  #define IN_ROT_ENC1_A       POT_MIST               // geht wegen RC Glied nicht !
+  #define IN_ROT_ENC1_B       POT_SPIT               // 
+    
+  #define OUT_DIR             14                     // Direction pin
+  #define OUT_STEP            13                     // Step pin
+  #define OUT_ENABLE          12                     // Enable pin
+  #define OUT_AIR              2                     // Air valve pin
+  #define OUT_COOLANT          0                     // Coolant valve pin
+  #define OUT_LIFT            15                     // Lift valve pin
+  #define OUT_SPIT_LED        25                     // Spit LED pin,  Blue LED near Poti input
+  #define OUT_5V_1            19                     // 5V Output 1
+  #define OUT_5V_2            18                     // 5V Output 2
+  #define OUT_5V_3             5                     // 5V Output 3
+  #define OUT_5V_4             4                     // 5V Output 4
+  #define OUT_TXD             17                     // TxD pin
+  #define OUT_DTR             23                     // DTR pin
+ 
 #endif
 
 

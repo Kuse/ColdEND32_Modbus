@@ -12,15 +12,20 @@ In this fork Modbus RTU server support was added. For concurrent manual and Modb
 **holding registers**
 
 HOLDING_SPIT  1       // UINT16  MIN_SPIT_TIME .. MAX_SPIT_TIME   RW
+
 HOLDING_MIST  2       // UINT16  MIN_RPM * 10 .. MAX_RPM * 10     RW
 
 
 **coils**
 
 COIL_MIST_STAT     1   // RW
+
 COIL_AIR_STAT      2   // RW
+
 COIL_FAST_MODE     3   // RW
+
 COIL_COOLANT_VALVE 4   // R
+
 COIL_AIR_VALVE     5   // R
 
 

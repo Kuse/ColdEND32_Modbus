@@ -8,6 +8,9 @@
   Written by Tilman, 2021-12-11
   Last edited by Tilman, 2021-12-29
 
+  Display: 
+  https://www.az-delivery.de/products/1-3zoll-i2c-oled-display
+
 */
 
 
